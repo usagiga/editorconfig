@@ -23,6 +23,11 @@ function main() {
     echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
     ln -s '.editorconfig.d/.editorconfig' './.editorconfig'
 
+    # Generate symlink of GitHub Workflows
+    echoH1 "Generate symlink of .editorconfig"
+    mkdir -pv './.github/workflows/'
+    ln -s '../../.editorconfig.d/workflows/editorconfig.yml' './.github/workflows/editorconfig.yml'
+
     # Done
     echoH1 'All tasks are done 🎉'
     popd
