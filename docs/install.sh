@@ -17,11 +17,11 @@ function main() {
 
     # Register submodule
     echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
-    git submodule add "${REPO_URL}" '.editorconfig'
+    git submodule add "${REPO_URL}" '.editorconfig.d'
 
     # Generate symlink of .editorconfig
     echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
-    ln -s '.editorconfig/.editorconfig' './.editorconfig'
+    ln -s '.editorconfig.d/.editorconfig' './.editorconfig'
 
     # Done
     echoH1 'All tasks are done 🎉'
