@@ -20,7 +20,7 @@ function main() {
     pushd $(git rev-parse --show-toplevel)
 
     # Register / update submodule
-    echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
+    echoH1 "Register github.com/${REPO_AUTHOR}/${REPO_NAME} as submodule"
     HAS_SUBMODULE=$(git submodule status | grep '.editorconfig.d' || echo '')
     if [[ -z ${HAS_SUBMODULE} ]]; then
         git submodule add "${REPO_URL}" "${SRC_DIR}"
