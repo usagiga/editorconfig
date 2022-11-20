@@ -26,7 +26,7 @@ function main() {
         git submodule add "${REPO_URL}" "${SRC_DIR}"
     else
         pushd "${SRC_DIR}"
-        git switch master
+        git switch main
         git pull
         popd
     fi
