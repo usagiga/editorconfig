@@ -12,21 +12,33 @@ REPO_NAME='editorconfig'
 REPO_AUTHOR='usagiga'
 REPO_URL="https://github.com/${REPO_AUTHOR}/${REPO_NAME}"
 
+SRC_DIR='./.editorconfig.d'
+WORKFLOWS_SRC_DIR="${SRC_DIR}/workflows"
+WORKFLOWS_DST_DIR='./.github/workflows'
+
 function main() {
     pushd $(git rev-parse --show-toplevel)
 
-    # Register submodule
+    # Register / update submodule
     echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
-    git submodule add "${REPO_URL}" '.editorconfig.d'
+    HAS_SUBMODULE=$(git submodule status | grep '.editorconfig.d' || echo '')
+    if [[ -z ${HAS_SUBMODULE} ]]; then
+        git submodule add "${REPO_URL}" "${SRC_DIR}"
+    else
+        pushd "${SRC_DIR}"
+        git switch master
+        git pull
+        popd
+    fi
 
-    # Generate symlink of .editorconfig
-    echoH1 "Register github.com/${REPO_AUTHOR}}/${REPO_NAME} as submodule"
-    ln -s '.editorconfig.d/.editorconfig' './.editorconfig'
+    # Copy .editorconfig
+    echoH1 "Copy .editorconfig"
+    cp "${SRC_DIR}/.editorconfig" './.editorconfig'
 
-    # Generate symlink of GitHub Workflows
-    echoH1 "Generate symlink of .editorconfig"
-    mkdir -pv './.github/workflows/'
-    ln -s '../../.editorconfig.d/workflows/editorconfig.yml' './.github/workflows/editorconfig.yml'
+    # Copy GitHub Actions workflows
+    echoH1 "Copy workflows for GitHub Actions"
+    mkdir -pv "${WORKFLOWS_DST_DIR}"
+    cp "${WORKFLOWS_SRC_DIR}/editorconfig.yml" "${WORKFLOWS_DST_DIR}/editorconfig.yml"
 
     # Done
     echoH1 'All tasks are done 🎉'
