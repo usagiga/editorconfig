@@ -33,12 +33,12 @@ function main() {
 
     # Copy .editorconfig
     echoH1 "Copy .editorconfig"
-    cp "${SRC_DIR}/.editorconfig" './.editorconfig'
+    cp "${SRC_DIR}/.editorconfig" './.editorconfig' || true
 
     # Copy GitHub Actions workflows
     echoH1 "Copy workflows for GitHub Actions"
     mkdir -pv "${WORKFLOWS_DST_DIR}"
-    cp "${WORKFLOWS_SRC_DIR}/editorconfig.yml" "${WORKFLOWS_DST_DIR}/editorconfig.yml"
+    cp "${WORKFLOWS_SRC_DIR}/editorconfig.yml" "${WORKFLOWS_DST_DIR}/editorconfig.yml" || true
 
     # Done
     echoH1 'All tasks are done 🎉'
