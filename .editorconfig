@@ -32,6 +32,9 @@ indent_size = 2
 [*.md]
 # Default
 
+[*.pl,*.t]
+# Default
+
 [*.{js,jsx,ts,tsx,css,scss}]
 # To configure their rules, use ESLint / Prettier
 insert_final_newline = unset
