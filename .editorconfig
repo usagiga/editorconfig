@@ -30,7 +30,7 @@ indent_size = 2
 indent_size = 2
 
 [*.md]
-# Default
+indent_size = 2
 
 [*.{pl,t}]
 # Default
