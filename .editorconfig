@@ -41,6 +41,11 @@ indent_style = tab
 [*.cs]
 # Default
 
+[*.{c,cpp,h,hpp}]
+# To configure their rules, use clang-format
+indent_style = unset
+indent_size = unset
+
 [*.{js,jsx,ts,tsx,css,scss,vue}]
 # To configure their rules, use ESLint / Prettier
 insert_final_newline = unset
