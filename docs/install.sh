@@ -39,6 +39,7 @@ function main() {
     echoH1 "Copy workflows for GitHub Actions"
     mkdir -pv "${WORKFLOWS_DST_DIR}"
     cp "${WORKFLOWS_SRC_DIR}/editorconfig.yml" "${WORKFLOWS_DST_DIR}/editorconfig.yml" || true
+    cp "${WORKFLOWS_SRC_DIR}/update-editorconfig.yml" "${WORKFLOWS_DST_DIR}/update-editorconfig.yml" || true
 
     # Done
     echoH1 'All tasks are done 🎉'

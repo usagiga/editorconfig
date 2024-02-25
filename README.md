@@ -21,7 +21,7 @@ So just you review / merge it.
 
 ```sh
 bash ./.editorconfig.d/scripts/install.sh
-git add .editorconfig.d .editorconfig .github/workflows/editorconfig.yml
+git add .editorconfig.d .editorconfig .github/workflows/editorconfig.yml .github/workflows/update-editorconfig.yml
 git commit -m 'Bump version .editorconfig [skip ci]'
 ```
 
