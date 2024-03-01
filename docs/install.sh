@@ -34,6 +34,7 @@ function main() {
     # Copy .editorconfig
     echoH1 "Copy .editorconfig"
     cp "${SRC_DIR}/.editorconfig" './.editorconfig' || true
+    cp "${SRC_DIR}/.ecrc" './.ecrc' || true
 
     # Copy GitHub Actions workflows
     echoH1 "Copy workflows for GitHub Actions"
